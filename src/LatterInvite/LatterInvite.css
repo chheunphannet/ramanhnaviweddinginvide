@@ -1,0 +1,38 @@
+.text-1 {
+  font-family: "Moul", sans-serif;
+  font-size: large;
+  font-weight: bold;
+  /* text-shadow: 0px 3px 10px rgb(0, 0, 0, 0.1); */
+}
+
+.invite-frame {
+  width: 225px;
+  transform: rotateX(180deg);
+}
+
+.invite-frame-1 {
+  width: 225px;
+}
+
+.latter-invite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-container {
+  font-family: "Moulpali";
+  text-align: center;
+  padding: 10px;
+  color: #575ad6;
+  /* background: rgba(255, 255, 255, 0.25); */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  font-size: small;
+  line-height: 1.8;
+}
+
+

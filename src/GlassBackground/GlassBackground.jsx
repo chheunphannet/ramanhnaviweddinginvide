@@ -63,7 +63,7 @@ const styles = {
 
   mobileGlassContainer: {
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "start",
     maxWidth: "430px",
     width: "100%",
     minHeight: "100vh",

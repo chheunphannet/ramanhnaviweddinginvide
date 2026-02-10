@@ -8,6 +8,8 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 import { MainContent } from "./MainContent/MainContent";
 import { HeaderContent } from "./Header/HeaderContent";
+import { LatterInvite } from "./LatterInvite/LatterInvite";
+import { CountDown } from "./CountDown/CountDown";
 function App() {
   const [isOpen, setIsOpen] = useState(true);
   const [searchParams] = useSearchParams();
@@ -34,6 +36,8 @@ function App() {
       {!isOpen && (
         <MainContent>
           <HeaderContent />
+          <LatterInvite />
+          <CountDown />
         </MainContent>
       )}
     </GlassBackground>
