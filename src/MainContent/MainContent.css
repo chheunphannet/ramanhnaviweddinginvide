@@ -1,0 +1,11 @@
+.container {
+  width: 95%;
+  /* height: 95vh; */
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  /* animation: fade-up 1s ease-out forwards; */
+}

@@ -1,0 +1,72 @@
+.header-bg {
+  width: 100%;
+  min-height: 550px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 25px 25px 0 0;
+  
+  animation: fade-up 2s forwards;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 20px;
+}
+
+.text-header{
+  /* color: white; */
+  font-family: "Moulpali", cursive;
+  font-size: larger;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-bg {
+  animation-delay: 0.1s;
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+  background-position: 0 0;
+  animation: heart-steps 1s steps(28) infinite;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-both-name{
+  margin-top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Metal", sans-serif;
+  font-weight: bold;
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+@keyframes heart-steps {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -2800px 0;
+  }
+}

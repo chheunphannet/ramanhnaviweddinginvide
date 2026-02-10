@@ -1,0 +1,45 @@
+import React from "react";
+import bgImage from "/images/IMG_4306.webp";
+import bgFrameName from "/frame/name_frame.png";
+import "./OpentPaper.css";
+import FloatingParticles from "../BubbleEffect/FloatingParticles";
+const OpentPapper = ({ guestName, isOpen, setIsOpen }) => {
+  return (
+    <div
+      className="image-background"
+      style={{
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 1%, transparent 20.0%),
+            linear-gradient(to top, rgba(0, 0, 0, 0.4) 1%, transparent 20.0%),
+            url(${bgImage})`,
+      }}
+    >
+      <h1 className="header-text text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-red-200 via-red-300 to-yellow-200 leading-relaxed py-2 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
+        សិរីមង្គលអាពាហ៏ពិពាហ៍
+      </h1>
+      <div className="both-name">
+        <p>យិត រ៉ាម៉ាញ</p>
+        <p>&</p>
+        <p>នីន ណាវី</p>
+      </div>
+      <div className="frame-name-container">
+        <p className="third-header-text">សូមគោរពអញ្ជើញ</p>
+        <div className="frame-name">
+          <img src={bgFrameName} alt="frame name image" />
+          <p className="guest-name">{guestName}</p>
+        </div>
+      </div>
+
+      <FloatingParticles />
+      <button
+        type="button"
+        className="open-btn text-heading bg-linear-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-linear-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5"
+        onClick={() => setIsOpen(false)}
+      >
+        <span className="material-symbols-outlined">mail</span>{" "}
+        <span>បើកធៀប</span>
+      </button>
+    </div>
+  );
+};
+
+export default OpentPapper;
