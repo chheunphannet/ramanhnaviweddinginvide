@@ -71,7 +71,7 @@ export const WeddingApplication = () => {
             ></iframe>
           </div>
           <button className="to-google-map ">
-            <span class="material-symbols-outlined">map_search</span>
+            <span className="material-symbols-outlined">map_search</span>
             <a
               href="https://www.google.com/maps/place/12%C2%B006'36.2%22N+105%C2%B013'15.9%22E/@12.110049,105.221083,1715m/data=!3m1!1e3!4m4!3m3!8m2!3d12.110049!4d105.221083?entry=ttu&g_ep=EgoyMDI2MDIwOC4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
