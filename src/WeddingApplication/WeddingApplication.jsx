@@ -50,7 +50,6 @@ export const WeddingApplication = () => {
           <div className="icon-txt">
             <div className="icon-box">
               <span className="material-symbols-outlined">map</span>
-              <span className="material-symbols-outlined">map</span>
             </div>
             <p>
               <span className="font-bold text-center mb-6 text-yellow-600">
