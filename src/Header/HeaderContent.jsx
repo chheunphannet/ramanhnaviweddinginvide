@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeaderContent.css";
 import bgImage from "/images/IMG_4303.webp";
+import BackgroundMusic from "../MusicBackground/BackgroundMusic";
 
 export const HeaderContent = () => {
   return (
@@ -28,12 +29,20 @@ export const HeaderContent = () => {
         >
           SAVE THE DATE
         </p>
-        <p>ថ្ងៃសៅរ៍ ទី២៦ ខែកុម្ភៈ ឆ្នាំ២០២៦</p>
+        <p>ថ្ងៃព្រហស្បតិ៍ ទី២៦ ខែកុម្ភៈ ឆ្នាំ២០២៦</p>
         <p>ម៉ោង ០៥ : ០០ ល្ងាច</p>
         <p>26 . 02 . 2026 | 5:00 PM</p>
-        {/* <span className="material-symbols-outlined" style={{ color: "green" }}>
-          map_pin_heart
-        </span> */}
+        <div className="location-text">
+          <span
+            className="material-symbols-outlined"
+            style={{ color: "white" }}
+          >
+            map_pin_heart
+          </span>
+          <span>
+            នៅគេហដ្ឋានខាងស្រី​ ភូមិតាម៉ូត ឃុំគរ ស្រុកព្រៃឈរ ខេត្តកំពង់ចាម
+          </span>
+        </div>
       </div>
     </div>
   );

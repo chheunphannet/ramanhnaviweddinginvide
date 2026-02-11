@@ -1,0 +1,20 @@
+.play-box {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  font-family: Metal;
+  padding: 5px;
+}
+
+.play-box span {
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.music-control {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+}

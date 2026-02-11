@@ -83,6 +83,7 @@
   border: 2px dotted rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.15);
+  justify-content: center;
 }
 
 .header-animate {
@@ -119,4 +120,9 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.location-text{
+  font-size:15px; 
+  text-align: center;
 }

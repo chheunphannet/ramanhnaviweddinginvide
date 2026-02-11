@@ -35,4 +35,48 @@
   line-height: 1.8;
 }
 
+.landing {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.in-view .landing {
+  animation: landing-rise 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.3s;
+}
+
+.delay-3 {
+  animation-delay: 0.5s;
+}
+
+.delay-4 {
+  animation-delay: 0.7s;
+}
+
+@keyframes landing-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 

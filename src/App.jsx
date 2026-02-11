@@ -10,6 +10,13 @@ import { MainContent } from "./MainContent/MainContent";
 import { HeaderContent } from "./Header/HeaderContent";
 import { LatterInvite } from "./LatterInvite/LatterInvite";
 import { CountDown } from "./CountDown/CountDown";
+import ImagesView from "./ImagesView/ImagesView";
+import BackgroundMusic from "./MusicBackground/BackgroundMusic";
+import FloatingParticles from "./BubbleEffect/FloatingParticles";
+import WeddingScrollGallery from "./GallerySwaper/WeddingScrollGallery";
+import { WeddingApplication } from "./WeddingApplication/WeddingApplication";
+import { ChongdiaQR } from "./Chongdia/ChongdiaQR";
+import { Footer } from "./Footer/Footer";
 function App() {
   const [isOpen, setIsOpen] = useState(true);
   const [searchParams] = useSearchParams();
@@ -25,22 +32,30 @@ function App() {
   }, [searchParams]);
 
   return (
-    <GlassBackground>
-      {isOpen && (
-        <OpentPapper
-          guestName={guestName}
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-        />
-      )}
-      {!isOpen && (
-        <MainContent>
-          <HeaderContent />
-          <LatterInvite />
-          <CountDown />
-        </MainContent>
-      )}
-    </GlassBackground>
+    <>
+      <GlassBackground>
+        {isOpen && (
+          <OpentPapper
+            guestName={guestName}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          />
+        )}
+        {!isOpen && (
+          <MainContent>
+            <HeaderContent />
+            <LatterInvite />
+            <CountDown />
+            <ImagesView />
+            <WeddingScrollGallery />
+            <WeddingApplication />
+            <ChongdiaQR />
+            <Footer/>
+          </MainContent>
+        )}
+      </GlassBackground>
+      {!isOpen && <BackgroundMusic />}
+    </>
   );
 }
 
