@@ -13,9 +13,13 @@
 .time-box {
   width: 70px;
   height: 70px;
+
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.5);
+
   border-radius: 30px;
   cursor: pointer;
   justify-content: center;
@@ -32,14 +36,14 @@
 .countdown-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 25px;
   justify-content: center;
   align-items: center;
 }
 .time-text {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   text-align: center;
   font-family: "Kdam Thmor Pro";
   font-size: small;
@@ -54,12 +58,14 @@
   font-size: small;
 }
 
-.calender-box{
+.calender-box {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 30px;
-  padding: 20px;
+  padding: 30px;
 }
 
 .landing {

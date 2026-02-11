@@ -31,15 +31,15 @@ const BackgroundMusic = lazy(() => import("./MusicBackground/BackgroundMusic"));
 function App() {
   const [isOpen, setIsOpen] = useState(true);
   const [guestName, setGuestName] = useState("");
-  const [fontSize, setFontSize] = useState(24);
+  // const [fontSize, setFontSize] = useState(24);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const name = params.get("name");
-    const size = params.get("size");
+    // const size = params.get("size");
 
     if (name) setGuestName(name);
-    if (size) setFontSize(Number(size));
+    // if (size) setFontSize(Number(size));
   }, []);
 
   useEffect(() => {

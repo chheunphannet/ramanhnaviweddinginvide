@@ -36,7 +36,7 @@ export const WeddingApplication = () => {
         >
           <div className="icon-txt">
             <div className="icon-box">
-              <span class="material-symbols-outlined">calendar_today</span>
+              <span className="material-symbols-outlined">calendar_today</span>
             </div>
             <p>
               <span className="font-bold text-center mb-6 text-yellow-600">
@@ -49,7 +49,8 @@ export const WeddingApplication = () => {
           </div>
           <div className="icon-txt">
             <div className="icon-box">
-              <span class="material-symbols-outlined">map</span>
+              <span className="material-symbols-outlined">map</span>
+              <span className="material-symbols-outlined">map</span>
             </div>
             <p>
               <span className="font-bold text-center mb-6 text-yellow-600">
