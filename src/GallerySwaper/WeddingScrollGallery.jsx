@@ -1,4 +1,5 @@
 import React from "react";
+import Reveal from "../components/Reveal";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -51,9 +52,7 @@ const WeddingScrollGallery = () => {
   const getImagePath = (filename) => `/images/${filename}`;
 
   return (
-    <div
-      className="w-full py-6 " 
-    >
+    <Reveal className="w-full py-6">
       <div className="max-w-7xl mx-auto px-4" style={{ textAlign: "center" }}>
         {/* Optimized Title: Reduced shadow/complexity for performance */}
         <h2
@@ -118,7 +117,7 @@ const WeddingScrollGallery = () => {
           ))}
         </Swiper>
       </div>
-    </div>
+    </Reveal>
   );
 };
 

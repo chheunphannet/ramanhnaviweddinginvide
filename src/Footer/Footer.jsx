@@ -1,8 +1,9 @@
 import React from "react";
+import Reveal from "../components/Reveal";
 export const Footer = () => {
   const logoSize = 30;
   return (
-    <div className="footer">
+    <Reveal className="footer">
       <h2
         style={{
           textAlign: "center",
@@ -101,6 +102,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Reveal>
   );
 };

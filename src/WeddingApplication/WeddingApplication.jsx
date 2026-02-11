@@ -1,10 +1,11 @@
 import React from "react";
 import "./WeddingApplication.css";
 import bgImage from "/images/IMG_4344.webp";
+import Reveal from "../components/Reveal";
 
 export const WeddingApplication = () => {
   return (
-    <div className="wedding-application-container">
+    <Reveal className="wedding-application-container">
       <h2
         className="text-2xl md:text-4xl font-bold text-center mb-6 text-yellow-600"
         style={{
@@ -80,6 +81,6 @@ export const WeddingApplication = () => {
           </button>
         </div>
       </div>
-    </div>
+    </Reveal>
   );
 };
