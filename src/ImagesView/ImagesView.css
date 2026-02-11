@@ -3,3 +3,11 @@
   font-size: large;
   font-weight: bold;
 }
+
+.images-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}

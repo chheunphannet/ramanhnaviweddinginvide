@@ -92,7 +92,7 @@ const WeddingGallery = () => {
       : null;
 
   return (
-    <div className="gallery-container">
+    <div className="wedding-gallery">
       <div className="gallery-grid">
         {images.map((image, index) => (
           <button
@@ -124,10 +124,9 @@ const WeddingGallery = () => {
       {lightbox}
 
       <style>{`
-        .gallery-container {
+        .wedding-gallery {
           padding: 20px;
           background: none;
-          min-height: 100vh;
           display: flex;
           justify-content: center;
           align-items: center;
