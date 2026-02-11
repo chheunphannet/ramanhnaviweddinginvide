@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const WeddingGallery = () => {
   const images = [
@@ -37,6 +38,59 @@ const WeddingGallery = () => {
     };
   }, [activeIndex, images.length]);
 
+  const lightbox =
+    activeIndex !== null && typeof document !== "undefined"
+      ? createPortal(
+          <div
+            className="lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Wedding photo viewer"
+            onClick={() => setActiveIndex(null)}
+          >
+            <button
+              type="button"
+              className="lightbox-close"
+              onClick={() => setActiveIndex(null)}
+              aria-label="Close image viewer"
+            >
+              &times;
+            </button>
+            <button
+              type="button"
+              className="lightbox-nav lightbox-prev"
+              onClick={(event) => {
+                event.stopPropagation();
+                setActiveIndex((current) =>
+                  (current - 1 + images.length) % images.length,
+                );
+              }}
+              aria-label="Previous image"
+            >
+              &lsaquo;
+            </button>
+            <img
+              src={images[activeIndex]}
+              alt={`Wedding photo ${activeIndex + 1}`}
+              className="lightbox-image"
+              onClick={(event) => event.stopPropagation()}
+            />
+            <button
+              type="button"
+              className="lightbox-nav lightbox-next"
+              onClick={(event) => {
+                event.stopPropagation();
+                setActiveIndex((current) => (current + 1) % images.length);
+              }}
+              aria-label="Next image"
+            >
+              &rsaquo;
+            </button>
+          </div>,
+          document.body,
+        )
+      : null;
+
   return (
     <div className="gallery-container">
       <div className="gallery-grid">
@@ -67,45 +121,7 @@ const WeddingGallery = () => {
         ))}
       </div>
 
-      {activeIndex !== null && (
-        <div className="lightbox" role="dialog" aria-modal="true">
-          <button
-            type="button"
-            className="lightbox-close"
-            onClick={() => setActiveIndex(null)}
-            aria-label="Close image viewer"
-          >
-            ×
-          </button>
-          <button
-            type="button"
-            className="lightbox-nav lightbox-prev"
-            onClick={() =>
-              setActiveIndex((current) =>
-                (current - 1 + images.length) % images.length,
-              )
-            }
-            aria-label="Previous image"
-          >
-            ‹
-          </button>
-          <img
-            src={images[activeIndex]}
-            alt={`Wedding photo ${activeIndex + 1}`}
-            className="lightbox-image"
-          />
-          <button
-            type="button"
-            className="lightbox-nav lightbox-next"
-            onClick={() =>
-              setActiveIndex((current) => (current + 1) % images.length)
-            }
-            aria-label="Next image"
-          >
-            ›
-          </button>
-        </div>
-      )}
+      {lightbox}
 
       <style>{`
         .gallery-container {
@@ -190,6 +206,11 @@ const WeddingGallery = () => {
           align-items: center;
           justify-content: center;
           z-index: 50;
+          padding: max(24px, env(safe-area-inset-top))
+            max(20px, env(safe-area-inset-right))
+            max(24px, env(safe-area-inset-bottom))
+            max(20px, env(safe-area-inset-left));
+          box-sizing: border-box;
         }
 
         .lightbox-image {
@@ -202,8 +223,8 @@ const WeddingGallery = () => {
 
         .lightbox-close {
           position: absolute;
-          top: 24px;
-          right: 28px;
+          top: max(20px, env(safe-area-inset-top));
+          right: max(20px, env(safe-area-inset-right));
           font-size: 36px;
           color: white;
           background: transparent;
@@ -226,6 +247,7 @@ const WeddingGallery = () => {
           display: flex;
           align-items: center;
           justify-content: center;
+          z-index: 1;
         }
 
         .lightbox-prev {
