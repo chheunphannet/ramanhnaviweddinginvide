@@ -1,19 +1,15 @@
 import React from "react";
 import Reveal from "../components/Reveal";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/virtual"; // Import Virtual CSS
+import "swiper/css/virtual";
 
-// Import required modules
 import { Navigation, Pagination, Virtual } from "swiper/modules";
 
 const WeddingScrollGallery = () => {
-  // Your image list
   const images = [
     "IMG_4295.webp",
     "IMG_4296.webp",
@@ -54,7 +50,6 @@ const WeddingScrollGallery = () => {
   return (
     <Reveal className="w-full py-6">
       <div className="max-w-7xl mx-auto px-4" style={{ textAlign: "center" }}>
-        {/* Optimized Title: Reduced shadow/complexity for performance */}
         <h2
           className="text-2xl md:text-4xl font-bold text-center mb-6 text-yellow-600"
           style={{
@@ -84,26 +79,16 @@ const WeddingScrollGallery = () => {
           virtual // Turn on virtualization
           navigation={true}
           pagination={{ clickable: true, dynamicBullets: true }}
-          // breakpoints={{
-          //   640: { slidesPerView: 1, spaceBetween: 10 },
-          //   1024: { slidesPerView: 3, spaceBetween: 20 },
-          // }}
           className="mySwiper"
           style={{ paddingBottom: "30px" }}
         >
           {images.map((img, index) => (
-            // SwiperSlide needs 'virtualIndex' for this mode to work
             <SwiperSlide
               key={img}
               virtualIndex={index}
               className="rounded-lg overflow-hidden"
             >
               <div className="relative w-full bg-gray-200 flex items-center justify-center min-h-[60vh]">
-                {/* OPTIMIZATION:
-                    1. loading="lazy": Browser only loads it when near.
-                    2. decoding="async": Decodes image off the main thread (less stutter).
-                    3. style height/width: Forces the browser to reserve space (no layout shifts).
-                 */}
                 <img
                   src={getImagePath(img)}
                   alt={`Wedding ${index}`}
