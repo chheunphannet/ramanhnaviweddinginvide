@@ -98,7 +98,7 @@ const WeddingScrollGallery = () => {
               virtualIndex={index}
               className="rounded-lg overflow-hidden"
             >
-              <div className="relative w-full aspect-3/4 bg-gray-200">
+              <div className="relative w-full bg-gray-200 flex items-center justify-center min-h-[60vh]">
                 {/* OPTIMIZATION:
                     1. loading="lazy": Browser only loads it when near.
                     2. decoding="async": Decodes image off the main thread (less stutter).
@@ -109,7 +109,7 @@ const WeddingScrollGallery = () => {
                   alt={`Wedding ${index}`}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover"
+                  className="max-h-[70vh] w-auto object-contain"
                   style={{ contentVisibility: "auto" }}
                 />
               </div>
