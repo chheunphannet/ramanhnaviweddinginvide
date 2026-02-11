@@ -1,6 +1,11 @@
 .header-bg {
   width: 100%;
   min-height: 550px;
+  background-color: #111;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 1%, transparent 20%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.3) 1%, transparent 20%),
+    url("/images/IMG_4303.webp");
 
   background-size: cover;
   background-position: center;

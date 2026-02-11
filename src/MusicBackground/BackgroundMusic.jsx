@@ -46,7 +46,7 @@ const BackgroundMusic = () => {
 
   return (
     <div className="music-control bottom-5 right-5 z-50">
-      <audio ref={audioRef} src={musicUrl} loop />
+      <audio ref={audioRef} src={musicUrl} loop preload="auto" />
 
       <button
         onClick={togglePlay}
