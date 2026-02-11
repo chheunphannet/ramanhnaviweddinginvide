@@ -1,10 +1,4 @@
-import React, { useEffect } from "react";
-import lightGallery from "lightgallery";
-import lgZoom from "lightgallery/plugins/zoom";
-import lgThumbnail from "lightgallery/plugins/thumbnail";
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css";
+import React, { useEffect, useState } from "react";
 
 const WeddingGallery = () => {
   const images = [
@@ -16,27 +10,43 @@ const WeddingGallery = () => {
     "/images/DSC_8463 copy 2.webp",
   ];
 
+  const [activeIndex, setActiveIndex] = useState(null);
+
   useEffect(() => {
-    const gallery = lightGallery(document.getElementById("wedding-gallery"), {
-      plugins: [lgZoom, lgThumbnail],
-      speed: 500,
-      selector: ".gallery-item",
-    });
+    if (activeIndex === null) return;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setActiveIndex(null);
+      } else if (event.key === "ArrowRight") {
+        setActiveIndex((current) => (current + 1) % images.length);
+      } else if (event.key === "ArrowLeft") {
+        setActiveIndex((current) =>
+          (current - 1 + images.length) % images.length,
+        );
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
     return () => {
-      gallery.destroy();
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = originalOverflow;
     };
-  }, []);
+  }, [activeIndex, images.length]);
 
   return (
     <div className="gallery-container">
-      <div id="wedding-gallery" className="gallery-grid">
+      <div className="gallery-grid">
         {images.map((image, index) => (
-          <a
+          <button
             key={index}
             className={`gallery-item item-${index + 1}`}
-            href={image}
-            data-src={image}
+            type="button"
+            onClick={() => setActiveIndex(index)}
+            aria-label={`Open wedding photo ${index + 1}`}
           >
             <img src={image} alt={`Wedding photo ${index + 1}`} />
             <div className="overlay">
@@ -53,9 +63,49 @@ const WeddingGallery = () => {
                 <path d="m21 21-4.35-4.35" />
               </svg>
             </div>
-          </a>
+          </button>
         ))}
       </div>
+
+      {activeIndex !== null && (
+        <div className="lightbox" role="dialog" aria-modal="true">
+          <button
+            type="button"
+            className="lightbox-close"
+            onClick={() => setActiveIndex(null)}
+            aria-label="Close image viewer"
+          >
+            ×
+          </button>
+          <button
+            type="button"
+            className="lightbox-nav lightbox-prev"
+            onClick={() =>
+              setActiveIndex((current) =>
+                (current - 1 + images.length) % images.length,
+              )
+            }
+            aria-label="Previous image"
+          >
+            ‹
+          </button>
+          <img
+            src={images[activeIndex]}
+            alt={`Wedding photo ${activeIndex + 1}`}
+            className="lightbox-image"
+          />
+          <button
+            type="button"
+            className="lightbox-nav lightbox-next"
+            onClick={() =>
+              setActiveIndex((current) => (current + 1) % images.length)
+            }
+            aria-label="Next image"
+          >
+            ›
+          </button>
+        </div>
+      )}
 
       <style>{`
         .gallery-container {
@@ -86,6 +136,11 @@ const WeddingGallery = () => {
           transition:
             transform 0.3s ease,
             box-shadow 0.3s ease;
+          border: none;
+          background: transparent;
+          padding: 0;
+          width: 100%;
+          height: 100%;
         }
 
         .gallery-item:hover {
@@ -125,6 +180,60 @@ const WeddingGallery = () => {
 
         .gallery-item:hover .magnify-icon {
           transform: scale(1);
+        }
+
+        .lightbox {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.88);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 50;
+        }
+
+        .lightbox-image {
+          max-width: min(92vw, 1100px);
+          max-height: 88vh;
+          object-fit: contain;
+          border-radius: 12px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .lightbox-close {
+          position: absolute;
+          top: 24px;
+          right: 28px;
+          font-size: 36px;
+          color: white;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+        }
+
+        .lightbox-nav {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 48px;
+          color: white;
+          background: rgba(0, 0, 0, 0.25);
+          border: none;
+          width: 56px;
+          height: 56px;
+          border-radius: 999px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .lightbox-prev {
+          left: 24px;
+        }
+
+        .lightbox-next {
+          right: 24px;
         }
 
         /* Grid layout pattern matching the reference image */
