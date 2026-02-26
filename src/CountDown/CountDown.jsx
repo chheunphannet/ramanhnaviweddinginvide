@@ -97,15 +97,17 @@ export const CountDown = () => {
             វិនាទី
           </span>
         </div>
-        {timeLeft.days === 0 &&
-          timeLeft.hours === 0 &&
-          timeLeft.minutes === 0 &&
-          timeLeft.seconds === 0 && (
+      </div>
+      {timeLeft.days === 0 &&
+        timeLeft.hours === 0 &&
+        timeLeft.minutes === 0 &&
+        timeLeft.seconds === 0 && (
+          <>
             <p className="time-end landing delay-7 text-6xl font-bold text-transparent bg-clip-text bg-[linear-gradient(90deg,#eab308,#ca8a04,#fcd34d)] bg-size[200%_auto] leading-relaxed py-2">
               ពិធីមង្គលអាពាហ៍ពិពាហ៍បានចាប់ផ្ដើម!
             </p>
-          )}
-      </div>
+          </>
+        )}
     </div>
   );
 };
